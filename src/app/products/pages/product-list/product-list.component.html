@@ -1,0 +1,22 @@
+<div class="product-container">
+  <h2>🛍️ Produtos</h2>
+
+  <div *ngIf="products.length === 0" class="empty-message">
+    Nenhum produto disponível.
+  </div>
+
+  <div class="products-grid" *ngIf="products.length > 0">
+    <div class="product-card" *ngFor="let p of products">
+      <img [src]="p.imageUrl ? 'http://localhost:5202/images/' + p.imageUrl : 'https://via.placeholder.com/150'" 
+           class="product-image" />
+
+      <div class="product-info">
+        <h3><a [routerLink]="['/product', p.id]">{{p.name}}</a></h3>
+        <p class="price">{{p.price | currency:'BRL':'symbol-narrow'}}</p>
+      </div>
+
+      <button class="btn-add" (click)="add(p)">🛒 Adicionar ao carrinho</button>
+    </div>
+  </div>
+</div>
+

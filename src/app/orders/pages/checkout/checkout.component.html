@@ -1,0 +1,25 @@
+
+<div class="checkout-container" *ngIf="cart.getItems().length > 0; else emptyCart">
+  <h2>🛒 Checkout</h2>
+
+  <div class="items-list">
+    <div class="item-card" *ngFor="let i of cart.getItems()">
+      <div class="item-name">{{i.product.name}}</div>
+      <div class="item-qty-price">{{i.quantity}} x {{i.product.price | currency:'BRL':'symbol-narrow'}}</div>
+    </div>
+  </div>
+
+  <div class="total">
+    Total: <span>{{cart.total() | currency:'BRL':'symbol-narrow'}}</span>
+  </div>
+
+  <button class="btn-finish" (click)="finish()" [disabled]="cart.getItems().length===0">
+    Finalizar Compra
+  </button>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-message">
+    Seu carrinho está vazio. 🛒
+  </div>
+</ng-template>

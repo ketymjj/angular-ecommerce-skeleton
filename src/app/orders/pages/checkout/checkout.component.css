@@ -1,0 +1,87 @@
+.checkout-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+}
+
+.item-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.item-qty-price {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.btn-finish {
+  display: block;
+  width: 100%;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-finish:disabled {
+  background: #a0d6a5;
+  cursor: not-allowed;
+}
+
+.btn-finish:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 50px;
+  font-style: italic;
+}

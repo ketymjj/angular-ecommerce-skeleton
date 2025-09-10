@@ -1,0 +1,22 @@
+
+<div class="orders-container">
+  <h2>🧾 Meus Pedidos</h2>
+
+  <div *ngIf="orders.length === 0" class="empty-message">
+    Nenhum pedido encontrado.
+  </div>
+
+  <div class="orders-grid" *ngIf="orders.length > 0">
+    <div class="order-card" *ngFor="let o of orders">
+      <div class="order-header">
+        <strong>#{{o.id}}</strong> - {{o.createdAt | date:'short'}}
+      </div>
+      <div class="order-status">
+        Status: <span [ngClass]="o.status?.toLowerCase()">{{o.status || '— Entregue'}}</span>
+      </div>
+      <div class="order-total">
+        Total: {{o.totalAmount || 0 | currency:'BRL':'symbol-narrow'}}
+      </div>
+    </div>
+  </div>
+</div>

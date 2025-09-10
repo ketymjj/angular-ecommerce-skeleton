@@ -1,0 +1,14 @@
+{
+  "compileOnSave": false,
+ "compilerOptions": {
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

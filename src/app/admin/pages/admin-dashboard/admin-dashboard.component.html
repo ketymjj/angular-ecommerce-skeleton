@@ -1,0 +1,38 @@
+<div *ngIf="isAdmin; else notAuthorized" class="dashboard">
+  <h2>📊 Admin - Visão Geral</h2>
+
+  <!-- Form para adicionar/editar produto -->
+  <form (ngSubmit)="saveProduct()" class="form">
+    <input type="text" placeholder="Nome" [(ngModel)]="currentProduct.name" name="name" required>
+    <input type="text" placeholder="Descrição" [(ngModel)]="currentProduct.description" name="description" required>
+    <input type="number" placeholder="Estoque" [(ngModel)]="currentProduct.stockQuantity" name="stockQuantity" required>
+    <input type="number" placeholder="Preço" [(ngModel)]="currentProduct.price" name="price" required>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button type="submit" class="btn-primary">
+      {{ currentProduct.id ? 'Atualizar' : 'Adicionar' }}
+    </button>
+    <button type="button" class="btn-secondary" (click)="cancelEdit()" *ngIf="currentProduct.id">Cancelar</button>
+  </form>
+
+  <h3>📦 Produtos</h3>
+  <div class="grid">
+    <div class="card" *ngFor="let p of products">
+      <img [src]="'http://localhost:5202/images/' + p.imageUrl">
+      <h4>{{ p.name }}</h4>
+      <p><strong>Preço:</strong> R$ {{ p.price }}</p>
+      <div class="actions">
+        <button (click)="editProduct(p)" class="btn-edit">Editar</button>
+        <button (click)="deleteProduct(p.id)" class="btn-delete">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notAuthorized>
+  <div class="not-authorized">
+    <h3>❌ Acesso negado</h3>
+    <p>Você não possui permissão para acessar esta página.</p>
+  </div>
+</ng-template>
+
+
