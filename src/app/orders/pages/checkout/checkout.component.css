@@ -85,3 +85,22 @@ h2 {
   margin-top: 50px;
   font-style: italic;
 }
+.btn-back {
+  display: block;
+  width: 100%;
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-back:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
