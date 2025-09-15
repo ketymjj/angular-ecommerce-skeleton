@@ -1,5 +1,7 @@
-
 <div class="checkout-container" *ngIf="cart.getItems().length > 0; else emptyCart">
+  
+  <button class="btn-back" (click)="goBack()">⬅ Voltar</button>
+
   <h2>🛒 Checkout</h2>
 
   <div class="items-list">
@@ -23,3 +25,4 @@
     Seu carrinho está vazio. 🛒
   </div>
 </ng-template>
+
