@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../../products/services/cart.service';
 import { OrderService } from '../../services/order.service';
 import { AuthService } from '../../../auth/services/auth.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -18,6 +19,11 @@ export class CheckoutComponent {
   private orders = inject(OrderService);
   private router = inject(Router);
   private authService = inject(AuthService);
+  private location = inject(Location);
+
+  goBack() {
+    this.location.back();
+  }
 
   finish() {
     const items = this.cart.getItems().map(i => ({
